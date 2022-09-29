@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/all.css' %}">
+
+    <title>USER AUTHENTICATION</title>
+</head>
+<body>
+    <section>
+        <form method="post" action="">
+            {% csrf_token %}
+            <h3>Login here <a href="{% url 'register' %}" >register</a> </h3>
+            <div class="wrapper">
+                <div class="input-wrapper">
+                    <input type="text" id="email" placeholder="username" required name="username">
+                </div>
+            </div>
+            <div class="wrapper">
+                <div class="input-wrapper">
+                    <input type="password" id="password" placeholder="password" required name="password">
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+            <span class="my-3">or</span>
+            <div class="social-media d-flex my-3 justify-content-evenly">
+                <i title="Facebook" class="fab fa-facebook-square" aria-hidden="true"></i>
+                <i title="Google" class="fab fa-google-plus-square" aria-hidden="true"></i>
+                <i title="Github" class="fab fa-github-square" aria-hidden="true"></i>
+            </div>
+            {% for message in messages %}
+            {{message}}
+            {% endfor %}
+        </form>
+        
+    </section>
+
+</body>
+<script src="{% static '/js/jquery-3.6.0.js' %}"></script>
+<script src="{% static 'js/popper.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.js' %}"></script>
+</html>
