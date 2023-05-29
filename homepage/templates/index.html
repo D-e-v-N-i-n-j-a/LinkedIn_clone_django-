@@ -1,0 +1,104 @@
+{% include 'base.html' %}
+
+<style>
+    .container {
+         margin-top: 20px;
+       }
+   
+       .row {
+         margin-bottom: 20px;
+       }
+   
+       .profile {
+         padding: 20px;
+         background-color: #fff;
+         border-radius: 5px;
+         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+       }
+   
+       .profile .profile-info {
+         display: flex;
+         align-items: center;
+       }
+   
+       .profile .profile-info img {
+         width: 80px;
+         height: 80px;
+         border-radius: 50%;
+         object-fit: cover;
+         margin-right: 20px;
+       }
+   
+       .profile .profile-info h2 {
+         margin-bottom: 0;
+       }
+   
+       .profile .profile-info p {
+         margin-bottom: 0;
+         font-size: 14px;
+         color: #666;
+       }
+   
+       .profile .profile-actions {
+         margin-top: 20px;
+       }
+   
+       .profile .profile-actions button {
+         margin-right: 10px;
+       }
+   
+       .content {
+         background-color: #fff;
+         border-radius: 5px;
+         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+         padding: 20px;
+       }
+   
+       .content h3 {
+         margin-top: 0;
+         margin-bottom: 20px;
+       }
+     </style>
+
+
+{% include 'navbar.html' %}
+
+
+{% block content %}
+
+
+{% if user.is_authenticated %}
+
+<div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body d-flex flex-column align-items-center">
+                <img src="{{user.profile.pic.url}}" style="height: 50px; width:50px" class="card-img-top rounded-circle text-center" alt="Profile Picture">
+              <h5 class="card-title">{{user.username}}</h5>
+              <h6 class="card-subtitle mb-2 text-body-secondary">Web Developer</h6>
+              <hr>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="card-link">Card link</a>
+              <a href="#" class="card-link">Another link</a>
+            </div>
+          </div>
+          
+      </div>
+      <div class="col-md-8">
+        <div class="content">
+          <h3>News Feed</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut pretium mauris eu posuere venenatis. In ultrices, risus non ullamcorper feugiat, lacus diam rutrum velit, id iaculis justo lacus sit amet magna. Pellentesque eu ante justo.</p>
+          <p>Integer vulputate feugiat fringilla. Sed ac turpis at felis elementum auctor. Fusce vestibulum dapibus nisi ac egestas. Mauris a finibus odio. Aliquam erat volutpat. Integer accumsan massa nec interdum malesuada.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% endif %}
+
+
+
+
+{% endblock %}
+

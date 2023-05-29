@@ -15,10 +15,10 @@ def login(request):
             auth.login(request,user)
             return redirect('/')
         else:
-            print(email)
+            # print(email)
             print(password)
             messages.info(request,'Wrong credentials')
-            return redirect('login')
+            return redirect('accounts:login')
     
     return render(request,'login.html')
 
@@ -62,4 +62,4 @@ def register(request):
 def logout(request):
     auth.logout(request)
     print('user successfully logout')
-    return redirect('login')
+    return redirect('accounts:login')

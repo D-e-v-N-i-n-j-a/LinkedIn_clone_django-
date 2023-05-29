@@ -1,0 +1,96 @@
+{% if user.is_authenticated %}
+
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <div class="d-flex align-items-center">
+        <a class="navbar-brand" href="/">LinkedIn</a>
+        <form class="form-inline search-form">
+          <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+        </form>
+      </div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/"><i class="fas fa-home"></i>Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fas fa-user-friends"></i>Network</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fas fa-briefcase"></i>Jobs</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fas fa-comments"></i>Messaging</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fas fa-bell"></i>Notifications</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+               aria-haspopup="true" aria-expanded="false">
+              <i class="fas fa-user"></i>Me
+            </a>
+            <div class="dropdown-menu" aria-labelledby="userDropdown">
+              <a class="dropdown-item" href="#">{{user.username}}</a>
+              <a class="dropdown-item" href="#">Profile</a>
+              <a class="dropdown-item" href="#">Settings</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="{% url 'accounts:logout' %}">Logout</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  {% endif %}
+
+
+  <style>
+    .navbar {
+      background-color: #0073b1;
+    }
+
+    .navbar-brand {
+      color: #fff;
+      font-weight: bold;
+      font-size: 24px;
+    }
+
+    .search-form {
+      margin-left: 10px;
+      width: 300px;
+    }
+
+    .search-form input {
+      width: 100%;
+    }
+
+    .nav-link {
+      color: #fff;
+      font-size: 12px;
+    }
+
+    .nav-link i {
+      margin-right: 5px;
+    }
+
+    .nav-link:hover {
+      color: #f0f0f0;
+    }
+
+    .user-profile {
+      color: #fff;
+      font-size: 18px;
+      font-weight: bold;
+      margin-left: 10px;
+    }
+
+    .user-profile i {
+      margin-right: 5px;
+    }
+  </style>
